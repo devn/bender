@@ -19,13 +19,6 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ["Nick Karpenske", "Devin Walters", "Jaymes Waters", "Stephen Anderson", "Bradley Grzesiak"]
   gem.default_executable  = "bender"
   gem.executables         = ["bender"]
-  gem.files               = [
-    "README.md",
-    "bender.gemspec",
-    "bin/bender",
-    "lib/bender.rb",
-    "lib/bender/runner.rb"
-  ]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
