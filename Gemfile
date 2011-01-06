@@ -1,8 +1,8 @@
 source "http://rubygems.org"
 
-gem 'sinatra'
 gem 'git'
 gem 'haml'
+gem 'sinatra'
 
 group :development, :test do
   gem 'aruba'

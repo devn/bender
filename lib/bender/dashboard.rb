@@ -4,8 +4,9 @@ require 'haml'
 
 class Bender
   class Dashboard < Sinatra::Base
+    set :root, File.join(File.dirname(__FILE__), '../../')
     get '/' do
-      @git = Git.open(File.expand_path(File.join(__FILE__, '../../../')))
+      @git = Git.open(Dir.pwd)
       haml :index
     end
   end

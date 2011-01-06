@@ -26,11 +26,23 @@ Gem::Specification.new do |s|
     "VERSION",
     "bender.gemspec",
     "bin/bender",
+    "config/cucumber.yml",
     "features/bender_help.feature",
+    "features/dashboard_git_sources.feature",
+    "features/step_definitions/git.rb",
+    "features/step_definitions/web_steps.rb",
     "features/support/env.rb",
+    "features/support/paths.rb",
+    "features/support/sections.rb",
     "lib/bender.rb",
+    "lib/bender/dashboard.rb",
     "lib/bender/runner.rb",
-    "spec/spec_helper.rb"
+    "lib/tasks/cucumber.rake",
+    "lib/tasks/jeweler.rake",
+    "lib/tasks/rspec.rake",
+    "spec/spec_helper.rb",
+    "templates/dotbendrc",
+    "views/index.haml"
   ]
   s.homepage = %q{http://github.com/bendyworks/bender}
   s.licenses = ["MIT"]
@@ -46,27 +58,51 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<git>, [">= 0"])
+      s.add_runtime_dependency(%q<haml>, [">= 0"])
       s.add_runtime_dependency(%q<sinatra>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<aruba>, [">= 0"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<capybara>, [">= 0"])
+      s.add_development_dependency(%q<cucumber-sinatra>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<launchy>, [">= 0"])
+      s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
+      s.add_runtime_dependency(%q<git>, [">= 0"])
+      s.add_runtime_dependency(%q<haml>, [">= 0"])
+      s.add_runtime_dependency(%q<sinatra>, [">= 0"])
     else
+      s.add_dependency(%q<git>, [">= 0"])
+      s.add_dependency(%q<haml>, [">= 0"])
       s.add_dependency(%q<sinatra>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<aruba>, [">= 0"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<capybara>, [">= 0"])
+      s.add_dependency(%q<cucumber-sinatra>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<launchy>, [">= 0"])
+      s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<rspec>, [">= 0"])
+      s.add_dependency(%q<git>, [">= 0"])
+      s.add_dependency(%q<haml>, [">= 0"])
+      s.add_dependency(%q<sinatra>, [">= 0"])
     end
   else
+    s.add_dependency(%q<git>, [">= 0"])
+    s.add_dependency(%q<haml>, [">= 0"])
     s.add_dependency(%q<sinatra>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<aruba>, [">= 0"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<capybara>, [">= 0"])
+    s.add_dependency(%q<cucumber-sinatra>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<launchy>, [">= 0"])
+    s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<rspec>, [">= 0"])
+    s.add_dependency(%q<git>, [">= 0"])
+    s.add_dependency(%q<haml>, [">= 0"])
+    s.add_dependency(%q<sinatra>, [">= 0"])
   end
 end
 
