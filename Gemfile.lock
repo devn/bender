@@ -35,6 +35,7 @@ GEM
     gherkin (2.3.3)
       json (~> 1.4.6)
     git (1.2.5)
+    haml (3.0.25)
     highline (1.6.1)
     jeweler (1.5.2)
       bundler (~> 1.0.0)
@@ -86,6 +87,8 @@ DEPENDENCIES
   bundler
   capybara
   cucumber-sinatra
+  git
+  haml
   jeweler
   launchy
   rcov
