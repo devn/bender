@@ -1,4 +1,6 @@
 unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:* tasks
+  require 'capybara'
+  Capybara.save_and_open_page_path = 'tmp/capybara'
 
   begin
     require 'cucumber/rake/task'
