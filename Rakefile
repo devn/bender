@@ -1,17 +1,18 @@
+begin; require 'rubygems'; rescue LoadError; end
+require 'rake'
+require 'rake/gempackagetask'
 
-begin
-  require 'bones'
-rescue LoadError
-  abort '### Please install the "bones" gem ###'
+spec = eval(File.read(File.join(File.dirname(__FILE__),'bender.gemspec')))
+Rake::GemPackageTask.new(spec) do |p|
+  p.gem_spec = spec
 end
 
-task :default => 'test:run'
-task 'gem:release' => 'test:run'
-
-Bones {
-  name  'bender'
-  authors  'FIXME (who is writing this software)'
-  email    'FIXME (your e-mail)'
-  url      'FIXME (project homepage)'
-}
-
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.rspec_opts = "--color"
+    t.pattern = "spec/**/*_spec.rb"
+  end
+  task :default => :spec
+rescue LoadError
+end
