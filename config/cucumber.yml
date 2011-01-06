@@ -1,0 +1,1 @@
+default: --format <%= ENV['CUCUMBER_FORMAT'] || 'pretty' %> --strict --tags ~@wip features

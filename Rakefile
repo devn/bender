@@ -1,11 +1,14 @@
 begin; require 'rubygems'; rescue LoadError; end
 require 'rake'
-require 'rake/gempackagetask'
+Dir[File.expand_path(File.join("lib/tasks/*.rb"))].each {|f| require f}
 
-spec = eval(File.read(File.join(File.dirname(__FILE__),'bender.gemspec')))
-Rake::GemPackageTask.new(spec) do |p|
-  p.gem_spec = spec
-end
+# require 'rake/gempackagetask'
+
+# spec = eval(File.read(File.join(File.dirname(__FILE__),'bender.gemspec')))
+# Rake::GemPackageTask.new(spec) do |p|
+  # p.gem_spec = spec
+# end
+
 require 'jeweler'
 
 Jeweler::Tasks.new do |gem|
