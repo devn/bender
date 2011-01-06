@@ -6,6 +6,7 @@ class Bender
   end
 
   autoload :Runner,  'bender/runner'
+  autoload :Dashboard,  'bender/dashboard'
 
   def self.config
     @config ||= {}.merge(

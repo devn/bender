@@ -162,6 +162,12 @@ class Bender
       const_set(name.to_s.capitalize.gsub(/[-_](.)/) { $1.upcase },Class.new(Base,&block))
     end
 
+    command :dashboard do
+      process do |*args|
+        Bender::Dashboard.run! :host => 'localhost', :port => 4567
+      end
+    end
+
     command :info do
       banner_arguments "[format]"
       summary "Show project info"
