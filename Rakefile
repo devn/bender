@@ -1,6 +1,6 @@
 begin; require 'rubygems'; rescue LoadError; end
 require 'rake'
-Dir[File.expand_path(File.join("lib/tasks/*.rb"))].each {|f| require f}
+Dir[File.expand_path(File.join("lib/tasks/*.rake"))].each {|f| load f}
 
 # require 'rake/gempackagetask'
 
