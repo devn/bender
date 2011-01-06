@@ -1,4 +1,6 @@
-source "http://rubygems.org"
+source :rubygems
+
+gem 'hitch'
 
 group :development, :test do
   gem "rspec"
@@ -6,4 +8,5 @@ group :development, :test do
   gem "jeweler"
   gem "rcov"
   gem "aruba"
+  gem 'mocha'
 end
