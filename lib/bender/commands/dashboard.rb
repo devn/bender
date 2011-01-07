@@ -1,3 +1,5 @@
+require 'bender/dashboard'
+
 module Bender::Command
   class Dashboard < Base
 
