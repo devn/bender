@@ -1,3 +1,5 @@
+require 'optparse'
+
 module Bender::Command
   class Base
 

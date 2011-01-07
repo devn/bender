@@ -14,16 +14,21 @@ module Bender::Command
 
       case @args.size
       when 0
-        puts "Bender Project"
+        puts "'info' outputs information about a specific command and its usage"
+        puts "usage: bender info <command>"
       else
-        # too_many
+        something
       end
+    end
+
+    def something
+      puts 'blah'
     end
 
     class << self
 
       def summary
-        "Show project info"
+        "additional information about specific commands"
       end
 
     end
