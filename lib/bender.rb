@@ -1,3 +1,3 @@
 module Bender; end
 
-require 'bender/base'
+require File.join(File.dirname(__FILE__), 'bender/base')

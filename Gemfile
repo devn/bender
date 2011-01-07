@@ -12,5 +12,6 @@ group :development, :test do
   gem 'jeweler'
   gem 'launchy'
   gem 'rcov'
+  gem 'mocha'
   gem 'rspec'
 end
