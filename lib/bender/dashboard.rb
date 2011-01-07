@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'git'
 require 'haml'
 
-class Bender
+module Bender
   class Dashboard < Sinatra::Base
     set :root, File.join(File.dirname(__FILE__), '../../')
     get '/' do

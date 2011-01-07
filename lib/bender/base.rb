@@ -1,0 +1,2 @@
+module Bender::Base
+end

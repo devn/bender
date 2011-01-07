@@ -3,5 +3,7 @@
 $:.unshift(File.join(File.dirname(File.dirname(__FILE__)),'lib'))
 begin; require 'rubygems'; rescue LoadError; end
 require 'bender'
+require 'bender/command'
 
-Bender.run(ARGV)
+include Bender::Command
+Bender::Command.run(ARGV)

@@ -6,7 +6,7 @@ gem 'sinatra'
 
 group :development, :test do
   gem 'aruba'
-  gem 'bundler'
+  gem 'ruby-debug19'
   gem 'capybara'
   gem 'cucumber-sinatra'
   gem 'jeweler'
