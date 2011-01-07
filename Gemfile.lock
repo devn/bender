@@ -51,6 +51,8 @@ GEM
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
     mime-types (1.16)
+    mocha (0.9.10)
+      rake
     nokogiri (1.4.4)
     rack (1.2.1)
     rack-test (0.5.7)
@@ -98,13 +100,13 @@ PLATFORMS
 
 DEPENDENCIES
   aruba
-  bundler
   capybara
   cucumber-sinatra
   git
   haml
   jeweler
   launchy
+  mocha
   rcov
   rspec
   ruby-debug19
