@@ -1,6 +1,6 @@
-require 'bender/commands/base'
+require 'bender/command/base'
 
-Dir["#{File.dirname(__FILE__)}/commands/*.rb"].each do |c|
+Dir["#{File.dirname(__FILE__)}/command/*.rb"].each do |c|
   require c
 end
 
