@@ -27,7 +27,7 @@ module Bender::Command
 
     class << self
 
-      def summary
+      def help_summary
         "additional information about specific commands"
       end
 

@@ -6,7 +6,7 @@ module Bender::Command
       puts
       puts "Commands:"
       commands.each do |command|
-        puts "    %-19s %s" % [command.name.split('::')[-1].downcase, command.summary]
+        puts "    %-19s %s" % [command.name.split('::')[-1].downcase, command.help_summary]
       end
       puts
       puts "Run bender <command> --help for help with a given command"
@@ -14,7 +14,7 @@ module Bender::Command
 
     class << self
 
-      def summary
+      def help_summary
       end
 
     end

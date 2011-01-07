@@ -12,7 +12,7 @@ module Bender::Command
 
     class << self
 
-      def summary
+      def help_summary
         "List config files with templates"
       end
 

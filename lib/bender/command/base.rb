@@ -19,7 +19,7 @@ module Bender::Command
 
     class << self
 
-      def summary
+      def help_summary
       end
 
     end
