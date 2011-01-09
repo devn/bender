@@ -9,6 +9,7 @@ module Bender
     set :root, root_dir
 
     get '/' do
+      @project_name = Dir.pwd.split('/')[-1]
       haml :index, {:layout => :'layouts/application'}
     end
 
