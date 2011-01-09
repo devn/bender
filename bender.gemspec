@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nick Karpenske", "Devin Walters", "Jaymes Waters", "Stephen Anderson", "Bradley Grzesiak"]
-  s.date = %q{2011-01-06}
+  s.date = %q{2011-01-08}
   s.default_executable = %q{bender}
   s.description = %q{Bite my Shiny Metal Ass!}
   s.email = %q{dev@bendyworks.com}
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "bin/bender",
     "config/cucumber.yml",
     "features/bender_help.feature",
+    "features/bender_info.feature",
     "features/dashboard_git_sources.feature",
     "features/step_definitions/git.rb",
     "features/step_definitions/web_steps.rb",
@@ -35,14 +36,21 @@ Gem::Specification.new do |s|
     "features/support/paths.rb",
     "features/support/sections.rb",
     "lib/bender.rb",
+    "lib/bender/base.rb",
+    "lib/bender/command.rb",
+    "lib/bender/command/base.rb",
+    "lib/bender/command/dashboard.rb",
+    "lib/bender/command/help.rb",
+    "lib/bender/command/info.rb",
+    "lib/bender/command/pair.rb",
+    "lib/bender/command/templates.rb",
     "lib/bender/dashboard.rb",
-    "lib/bender/runner.rb",
     "lib/tasks/cucumber.rake",
     "lib/tasks/jeweler.rake",
     "lib/tasks/rspec.rake",
+    "spec/commands/pair_spec.rb",
     "spec/spec_helper.rb",
-    "templates/dotbendrc",
-    "views/index.haml"
+    "templates/dotbendrc"
   ]
   s.homepage = %q{http://github.com/bendyworks/bender}
   s.licenses = ["MIT"]
@@ -50,6 +58,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Project Management Tools}
   s.test_files = [
+    "spec/commands/pair_spec.rb",
     "spec/spec_helper.rb"
   ]
 
@@ -62,12 +71,13 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<haml>, [">= 0"])
       s.add_runtime_dependency(%q<sinatra>, [">= 0"])
       s.add_development_dependency(%q<aruba>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<ruby-debug19>, [">= 0"])
       s.add_development_dependency(%q<capybara>, [">= 0"])
       s.add_development_dependency(%q<cucumber-sinatra>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<launchy>, [">= 0"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<mocha>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_runtime_dependency(%q<git>, [">= 0"])
       s.add_runtime_dependency(%q<haml>, [">= 0"])
@@ -77,12 +87,13 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<haml>, [">= 0"])
       s.add_dependency(%q<sinatra>, [">= 0"])
       s.add_dependency(%q<aruba>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<ruby-debug19>, [">= 0"])
       s.add_dependency(%q<capybara>, [">= 0"])
       s.add_dependency(%q<cucumber-sinatra>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<launchy>, [">= 0"])
       s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<mocha>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<git>, [">= 0"])
       s.add_dependency(%q<haml>, [">= 0"])
@@ -93,12 +104,13 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<haml>, [">= 0"])
     s.add_dependency(%q<sinatra>, [">= 0"])
     s.add_dependency(%q<aruba>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<ruby-debug19>, [">= 0"])
     s.add_dependency(%q<capybara>, [">= 0"])
     s.add_dependency(%q<cucumber-sinatra>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<launchy>, [">= 0"])
     s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<mocha>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<git>, [">= 0"])
     s.add_dependency(%q<haml>, [">= 0"])
