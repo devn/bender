@@ -13,8 +13,8 @@
         audioSupported = true;
       }
 
-      var benderImageMarkup = '<img id="bmsma-image" style="display: none" src="bmsma.png" />'
-      var benderAudioMarkup = '<audio id="bmsma-audio" preload="auto"><source src="bmsma.mp3" /><source src="bmsma.ogg" /></audio>';
+      var benderImageMarkup = '<img id="bmsma-image" style="display: none" src="/images/bmsma.png" />'
+      var benderAudioMarkup = '<audio id="bmsma-audio" preload="auto"><source src="/audio/bmsma.mp3" /><source src="/audio/bmsma.ogg" /></audio>';
       var locked = false;
 
       $('body').append(benderImageMarkup);

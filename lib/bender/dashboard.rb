@@ -7,9 +7,14 @@ module Bender
   class Dashboard < Sinatra::Base
     root_dir = File.join(File.dirname(__FILE__), %w(.. .. dashboard))
     set :root, root_dir
+
     get '/' do
-      @git = Git.open(Dir.pwd)
       haml :index, {:layout => :'layouts/application'}
+    end
+
+    get '/git' do
+      @git = Git.open(Dir.pwd)
+      haml :git, {:layout => false}
     end
 
     get '/screen.css' do
