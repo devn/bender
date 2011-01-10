@@ -121,33 +121,31 @@ header
     display: inline
 
     a, a:visited
-      /* Styling the hyperlinks of the tabs as colorful buttons */
       float: left
       font-size: 18px
-      // display:block allows for additinal CSS rules to take effect, such as paddings:
       display: block
       padding: 7px 16px 1px
       margin: 4px 5px
       height: 29px
       text-decoration: none
+      position: relative
+      text-shadow: 1px 1px 1px #CCCCCC
       font-family: futurama
 
-      /* Giving positioning */
-      position: relative
+      $border_radius: 3px
+      border-radius: $border_radius
+      -moz-border-radius: $border_radius
+      -webkit-border-radius: $border_radius
+      padding: 8px 15px 0
 
-      /* CSS3 text-shadow */
-      text-shadow: 1px 1px 1px #CCCCCC
-
-      /* Styling the colors individually: */
       &.green
-        $button_color: lighten(green, 15)
+        $main_color: lighten(green, 15)
+        $button_color: $main_color
         $border_color: darken($button_color, 30)
         $highlight_color: lighten($button_color, 40)
         $text_color: darken($button_color, 20)
         border: 1px solid $border_color
         background-color: $button_color
-        border-radius: 1px
-        padding: 5px 20px 0
         box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
@@ -155,19 +153,28 @@ header
         color: $text_color
         text-shadow: 1px 1px 1px lighten($button_color, 20)
         &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
           color: darken($text_color, 20)
         #over-line
           background-color: lighten($button_color, 20)
 
       &.blue
-        $button_color: #1e90ff
+        $main_color: #1e90ff
+        $button_color: $main_color
         $border_color: darken($button_color, 30)
         $highlight_color: lighten($button_color, 40)
         $text_color: darken($button_color, 30)
         border: 1px solid $border_color
         background-color: $button_color
-        border-radius: 1px
-        padding: 5px 20px 0
         box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
@@ -175,19 +182,28 @@ header
         color: $text_color
         text-shadow: 1px 1px 1px lighten($button_color, 20)
         &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
           color: darken($text_color, 20)
         #over-line
           background-color: lighten($button_color, 20)
 
       &.orange
-        $button_color: #FF8C00
+        $main_color: #FF8C00
+        $button_color: $main_color
         $border_color: darken($button_color, 30)
         $highlight_color: lighten($button_color, 40)
         $text_color: darken($button_color, 25)
         border: 1px solid $border_color
         background-color: $button_color
-        border-radius: 1px
-        padding: 5px 20px 0
         box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
@@ -195,39 +211,58 @@ header
         color: $text_color
         text-shadow: 1px 1px 1px lighten($button_color, 20)
         &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
           color: darken($text_color, 20)
         #over-line
           background-color: lighten($button_color, 20)
 
       &.red
-        $button_color: red
+        $main_color: red
+        $button_color: $main_color
         $border_color: darken($button_color, 30)
         $highlight_color: lighten($button_color, 40)
         $text_color: darken($button_color, 25)
         border: 1px solid $border_color
         background-color: $button_color
-        border-radius: 1px
-        padding: 5px 20px 0
         box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         color: $text_color
+        border-radius: $border_radius
         text-shadow: 1px 1px 1px lighten($button_color, 20)
         &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
           color: darken($text_color, 20)
         #over-line
           background-color: lighten($button_color, 20)
 
       &.purple
-        $button_color: lighten(#4b0082, 30)
+        $main_color: lighten(#4b0082, 30)
+        $button_color: $main_color
         $border_color: darken($button_color, 30)
         $highlight_color: lighten($button_color, 40)
         $text_color: darken($button_color, 25)
         border: 1px solid $border_color
         background-color: $button_color
-        border-radius: 1px
-        padding: 5px 20px 0
         box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
@@ -235,19 +270,28 @@ header
         color: $text_color
         text-shadow: 1px 1px 1px lighten($button_color, 20)
         &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
           color: darken($text_color, 20)
         #over-line
           background-color: lighten($button_color, 20)
 
       &.yellow
-        $button_color: darken(yellow, 6)
+        $main_color: darken(yellow, 6)
+        $button_color: $main_color
         $border_color: darken($button_color, 30)
         $highlight_color: lighten($button_color, 40)
         $text_color: darken($button_color, 20)
         border: 1px solid $border_color
         background-color: $button_color
-        border-radius: 1px
-        padding: 5px 20px 0
         box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
         -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
@@ -255,6 +299,16 @@ header
         color: $text_color
         text-shadow: 1px 1px 1px lighten($button_color, 20)
         &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
           color: darken($text_color, 20)
         #over-line
           background-color: lighten($button_color, 20)
