@@ -6,25 +6,19 @@ $(document).ready(function(){
     'Project' : '/git',
     'Tracker' : '/tracker',
     'Metrics' : '/metrics',
-    'Config'  : '/config'
+    'Config'  : '/config',
+    'Git'     : '/git',
+    'Pair'    : '/pair'
   }
 
   /* The available colors for the tabs: */
-  var colors = ['blue','green','red','orange'];
-
-  /* The colors of the line above the tab when it is active: */
-  var topLineColor = {
-    blue:'lightblue',
-    green:'lightgreen',
-    red:'red',
-    orange:'orange'
-  }
+  var colors = ['blue','green','red','yellow','purple','orange','purple'];
 
   /* Looping through the Tabs object: */
   var z=0;
   $.each(Tabs,function(i,j){
     /* Sequentially creating the tabs and assigning a color from the array: */
-    var tmp = $('<li><a href="#" class="tab '+colors[(z++%4)]+'">'+i+' <span class="left" /><span class="right" /></a></li>');
+    var tmp = $('<li><a href="#" class="tab '+colors[(z++%6)]+'">'+i+' <span class="left" /><span class="right" /></a></li>');
 
     /* Setting the page data for each hyperlink: */
     tmp.find('a').data('page',j);
@@ -54,8 +48,7 @@ $(document).ready(function(){
       id:'over-line',
       css:{
         display:'none',
-        width:element.outerWidth()-2,
-        background:topLineColor[bg] || 'white'
+        width:element.outerWidth()-2
       }}).appendTo(element).fadeIn('slow');
 
       /* Checking whether the AJAX fetched page has been cached: */

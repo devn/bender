@@ -1,16 +1,20 @@
 @import 'boilerplate'
 
+@font-face
+  font-family: futurama-title
+  src: url('/fonts/fr-title.ttf')
+
+@font-face
+  font-family: futurama
+  src: url('/fonts/fr-bold.ttf')
+
 body
   /* Setting default text color, background and a font stack */
   color: #CCC
   font-size: 0.825em
-  background-color: #1E2428
+  // background-color: #1E2428
+  background-color: #6b7686
   font-family: Arial, Helvetica, sans-serif
-
-#main
-  margin: 0 auto
-  position: relative
-  width: 1000px
 
 .clear
   /* Old-school clear fix hack to clear the floats: */
@@ -19,49 +23,74 @@ body
   overflow: hidden
 
 header
-  /* The styles below are only necessary for the styling of the demo page: */
-  h1
-    background: #121B21
-    border-bottom: 1px solid black
-    font-size: 1.5em
-    font-weight: normal
-    margin-bottom: 15px
-    padding: 15px
-    text-align: center
+  background: transparent url(/images/header_bg.png) repeat-x
+  height: 61px
+  #header-wrapper
+    width: 1000px
+    margin: auto
+    h1
+      $title_color: #6b7686
+      color: $title_color
+      float: left
+      margin-top: -0.35em
+      padding-top: 10px
+      font:
+        size: 3.3em
+        weight: normal
+        family: futurama-title
+      text-shadow: 0px -1px 2px darken($title_color, 40), 0px 1px 0px lighten($title_color, 3)
 
-  h2
-    font-size: 0.9em
-    font-weight: normal
-    padding-right: 40px
-    position: relative
-    right: 0
-    text-align: right
-    text-transform: uppercase
-    top: -48px
+    h2
+      color: #1e2836
+      float: right
+      font:
+        size: 0.9em
+        weight: normal
+        family: futurama
+      text:
+        shadow: 0 1px 1px #43526B
+        transform: uppercase
+      padding-top: 5px
 
-  a, a:visited
-    color: #0196E3
-    text-decoration: none
-    outline: none
-    &:hover
-      text-decoration: underline
+.shadow
+  -moz-box-shadow: inset 0 0 8px rgba(0,0,0, 0.25)
+  -webkit-box-shadow: inset 0 0 8px rgba(0,0,0, 0.25)
+
+#tab-content
+  $corner_radius: 40px
+  background-color: #989fa9
+  border: 1px solid #888
+  margin-top: -15px
+  width: 100%
+  -moz-border-radius-topleft: $corner_radius
+  -moz-border-radius-topright: 0px
+  -moz-border-radius-bottomright: $corner_radius
+  -moz-border-radius-bottomleft: 0px
+  -webkit-border-top-left-radius: $corner_radius
+  -webkit-border-top-right-radius: 0px
+  -webkit-border-bottom-left-radius: 0px
+  -webkit-border-bottom-right-radius: $corner_radius
 
 #content-holder
+  $corner_radius: 25px
   background-color: #EEE
   border: 2px solid #FFF
   min-height: 300px
   margin: 20px
   color: #444444
   padding: 15px
+  -moz-border-radius-topleft: $corner_radius
+  -moz-border-radius-topright: 0px
+  -moz-border-radius-bottomright: $corner_radius
+  -moz-border-radius-bottomleft: 0px
+  -webkit-border-top-left-radius: $corner_radius
+  -webkit-border-top-right-radius: 0px
+  -webkit-border-bottom-left-radius: 0px
+  -webkit-border-bottom-right-radius: $corner_radius
+
   .preloader
     display: block
     margin: 110px auto
-
-#tab-content
-  background-color: #333
-  border: 1px solid #444
-  margin-top: -15px
-  width: 100%
 
 #tab-content, .tab-container li a, #content-holder
   -webkit-box-shadow: 0 0 2px black
@@ -75,14 +104,16 @@ header
   background-color: white
   width: 90px
   float: left
-  left: 1px
+  left: 0px
   top: -5px
   overflow: hidden
 
 .tab-container
   /* The UL */
   float: right
-  padding-right: 13px
+  padding:
+    top: 15px
+    right: 13px
   position: relative
 
   li
@@ -98,6 +129,8 @@ header
       padding: 7px 16px 1px
       margin: 4px 5px
       height: 29px
+      text-decoration: none
+      font-family: futurama
 
       /* Giving positioning */
       position: relative
@@ -107,36 +140,124 @@ header
 
       /* Styling the colors individually: */
       &.green
-        color: #24570F
-        background: url(images/green_mid.png) repeat-x top center
-        span.left
-          background: url(images/green_left.png) no-repeat left top
-        span.right
-          background: url(images/green_right.png) no-repeat right top
+        $button_color: lighten(green, 15)
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 20)
+        border: 1px solid $border_color
+        background-color: $button_color
+        border-radius: 1px
+        padding: 5px 20px 0
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
 
       &.blue
-        color: #03426E
-        background: url(images/blue_mid.png) repeat-x top center
-        span.left
-          background: url(images/blue_left.png) no-repeat left top
-        span.right
-          background: url(images/blue_right.png) no-repeat right top
+        $button_color: #1e90ff
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 30)
+        border: 1px solid $border_color
+        background-color: $button_color
+        border-radius: 1px
+        padding: 5px 20px 0
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
 
       &.orange
-        background: url(images/orange_mid.png) repeat-x top center
-        color: #724104
-        span.left
-          background: url(images/orange_left.png) no-repeat left top
-        span.right
-          background: url(images/orange_right.png) no-repeat right top
+        $button_color: #FF8C00
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 25)
+        border: 1px solid $border_color
+        background-color: $button_color
+        border-radius: 1px
+        padding: 5px 20px 0
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
 
       &.red
-        background: url(images/red_mid.png) repeat-x top center
-        color: #6f0100
-        span.left
-          background: url(images/red_left.png) no-repeat left top
-        span.right
-          background: url(images/red_right.png) no-repeat right top
+        $button_color: red
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 25)
+        border: 1px solid $border_color
+        background-color: $button_color
+        border-radius: 1px
+        padding: 5px 20px 0
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
+
+      &.purple
+        $button_color: lighten(#4b0082, 30)
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 25)
+        border: 1px solid $border_color
+        background-color: $button_color
+        border-radius: 1px
+        padding: 5px 20px 0
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
+
+      &.yellow
+        $button_color: darken(yellow, 6)
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 20)
+        border: 1px solid $border_color
+        background-color: $button_color
+        border-radius: 1px
+        padding: 5px 20px 0
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
 
       /* The hover states: */
       &:hover
@@ -162,3 +283,8 @@ header
         position: absolute
         top: 0
         width: 10px
+
+#main
+  margin: 0 auto
+  position: relative
+  width: 1000px

@@ -18,8 +18,9 @@
 %body
   #container
     %header
-      %h1= @project_name
-      %h2 Bite my shiny metal ass
+      #header-wrapper
+        %h1= @project_name
+        %h2 Bite my shiny metal ass
     #main
       = yield
     %footer
