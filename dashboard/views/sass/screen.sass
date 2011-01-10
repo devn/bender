@@ -1,0 +1,344 @@
+@import 'boilerplate'
+
+@font-face
+  font-family: futurama-title
+  src: url('/fonts/fr-title.ttf')
+
+@font-face
+  font-family: futurama
+  src: url('/fonts/fr-bold.ttf')
+
+body
+  /* Setting default text color, background and a font stack */
+  color: #CCC
+  font-size: 0.825em
+  // background-color: #1E2428
+  background-color: #6b7686
+  font-family: Arial, Helvetica, sans-serif
+
+.clear
+  /* Old-school clear fix hack to clear the floats: */
+  clear: both
+  height: 1px
+  overflow: hidden
+
+header
+  background: transparent url(/images/header_bg.png) repeat-x
+  height: 61px
+  #header-wrapper
+    width: 1000px
+    margin: auto
+    h1
+      $title_color: #6b7686
+      color: $title_color
+      float: left
+      margin-top: -0.35em
+      padding-top: 10px
+      font:
+        size: 3.3em
+        weight: normal
+        family: futurama-title
+      text-shadow: 0px -1px 2px darken($title_color, 40), 0px 1px 0px lighten($title_color, 3)
+
+    h2
+      color: #1e2836
+      float: right
+      font:
+        size: 0.9em
+        weight: normal
+        family: futurama
+      text:
+        shadow: 0 1px 1px #43526B
+        transform: uppercase
+      padding-top: 5px
+
+.shadow
+  -moz-box-shadow: inset 0 0 8px rgba(0,0,0, 0.25)
+  -webkit-box-shadow: inset 0 0 8px rgba(0,0,0, 0.25)
+
+#tab-content
+  $corner_radius: 40px
+  background-color: #989fa9
+  border: 1px solid #888
+  margin-top: -15px
+  width: 100%
+  -moz-border-radius-topleft: $corner_radius
+  -moz-border-radius-topright: 0px
+  -moz-border-radius-bottomright: $corner_radius
+  -moz-border-radius-bottomleft: 0px
+  -webkit-border-top-left-radius: $corner_radius
+  -webkit-border-top-right-radius: 0px
+  -webkit-border-bottom-left-radius: 0px
+  -webkit-border-bottom-right-radius: $corner_radius
+
+#content-holder
+  $corner_radius: 25px
+  background-color: #EEE
+  border: 2px solid #FFF
+  min-height: 300px
+  margin: 20px
+  color: #444444
+  padding: 15px
+  -moz-border-radius-topleft: $corner_radius
+  -moz-border-radius-topright: 0px
+  -moz-border-radius-bottomright: $corner_radius
+  -moz-border-radius-bottomleft: 0px
+  -webkit-border-top-left-radius: $corner_radius
+  -webkit-border-top-right-radius: 0px
+  -webkit-border-bottom-left-radius: 0px
+  -webkit-border-bottom-right-radius: $corner_radius
+
+  .preloader
+    display: block
+    margin: 110px auto
+
+#tab-content, .tab-container li a, #content-holder
+  -webkit-box-shadow: 0 0 2px black
+  -moz-box-shadow: 0 0 2px black
+  box-shadow: 0 0 2px black
+
+#over-line
+  /* The line above the active button. */
+  position: absolute
+  height: 1px
+  background-color: white
+  width: 90px
+  float: left
+  left: 0px
+  top: -5px
+  overflow: hidden
+
+.tab-container
+  /* The UL */
+  float: right
+  padding:
+    top: 15px
+    right: 13px
+  position: relative
+
+  li
+    /* This will arrange the LI-s next to each other */
+    display: inline
+
+    a, a:visited
+      float: left
+      font-size: 18px
+      display: block
+      padding: 7px 16px 1px
+      margin: 4px 5px
+      height: 29px
+      text-decoration: none
+      position: relative
+      text-shadow: 1px 1px 1px #CCCCCC
+      font-family: futurama
+
+      $border_radius: 3px
+      border-radius: $border_radius
+      -moz-border-radius: $border_radius
+      -webkit-border-radius: $border_radius
+      padding: 8px 15px 0
+
+      &.green
+        $main_color: lighten(green, 15)
+        $button_color: $main_color
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 20)
+        border: 1px solid $border_color
+        background-color: $button_color
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
+
+      &.blue
+        $main_color: #1e90ff
+        $button_color: $main_color
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 30)
+        border: 1px solid $border_color
+        background-color: $button_color
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
+
+      &.orange
+        $main_color: #FF8C00
+        $button_color: $main_color
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 25)
+        border: 1px solid $border_color
+        background-color: $button_color
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
+
+      &.red
+        $main_color: red
+        $button_color: $main_color
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 25)
+        border: 1px solid $border_color
+        background-color: $button_color
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        border-radius: $border_radius
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
+
+      &.purple
+        $main_color: lighten(#4b0082, 30)
+        $button_color: $main_color
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 25)
+        border: 1px solid $border_color
+        background-color: $button_color
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
+
+      &.yellow
+        $main_color: darken(yellow, 6)
+        $button_color: $main_color
+        $border_color: darken($button_color, 30)
+        $highlight_color: lighten($button_color, 40)
+        $text_color: darken($button_color, 20)
+        border: 1px solid $border_color
+        background-color: $button_color
+        box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+        color: $text_color
+        text-shadow: 1px 1px 1px lighten($button_color, 20)
+        &:hover
+          $button_color: lighten($main_color, 5)
+          $border_color: darken($button_color, 30)
+          $highlight_color: lighten($button_color, 40)
+          $text_color: darken($button_color, 30)
+          border: 1px solid $border_color
+          background-color: $button_color
+          box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -o-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -moz-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          -webkit-box-shadow: inset 0 1px 3px $highlight_color, inset 0 -3px 15px $border_color, 0 2px 1px black
+          color: darken($text_color, 20)
+        #over-line
+          background-color: lighten($button_color, 20)
+
+      /* The hover states: */
+      &:hover
+        background-position: bottom center
+        text-decoration: none
+        span.left
+          background-position: left bottom
+        span.right
+          background-position: right bottom
+
+      .left
+        /* The left span in the hyperlink */
+        height: 37px
+        left: 0
+        position: absolute
+        top: 0
+        width: 10px
+
+      .right
+        /* The right span in the hyperlink */
+        height: 37px
+        right: 0
+        position: absolute
+        top: 0
+        width: 10px
+
+#main
+  margin: 0 auto
+  position: relative
+  width: 1000px
